@@ -1,14 +1,13 @@
-import React, {useState} from 'react';
+import React from 'react';
 
-function SearchBar(props) {
-const {handleChange, searchText} = props;
-
+function SearchBar({handleChange, searchText}) {
+//props from heroListing
   return (
     <section className="search">
     <form>
       <input
         id="search-bar"
-        type="search"
+        type="text"
         className="form-control"
         placeholder="Search Superheros"
         autoFocus
