@@ -1,10 +1,10 @@
 import React from 'react';
 //CSS
 import '../login.css';
-import loginLogo from '../img/loginlogo.jfif';
-//services
+import loginLogo from '../resources/img/loginlogo.jfif';
+//Services
 import Apiurl from '../service/apirest.js'
-//library
+//Library
 import axios from 'axios'
 
 class Login extends React.Component{
