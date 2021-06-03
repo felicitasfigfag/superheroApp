@@ -1,0 +1,335 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  background: #000 url('./resources/img/bg.jpg') center center/cover;
+  height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+}
+@font-face {
+  font-family: titles;
+  src: url(./resources/fonts/Gobold\ Regular.otf);
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 0 20px;
+}
+
+button{
+  font-family: 'Exo', sans-serif;
+}
+
+header {
+  height: 20vh;
+}
+
+header img {
+  width: 25%;
+  margin-top: -10px;
+}
+
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search {
+  height: 100px;
+}
+
+input[type='text'] {
+  display: block;
+  padding: 10px;
+  font-size: 20px;
+  border: 0;
+  border-radius: 5px;
+  width: 60%;
+  margin: auto;
+  outline: none;
+}
+
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  background-color: none;
+}
+.nav-btn{
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+/* ----------------------------------- */
+/*                Card                 */
+/* ----------------------------------- */
+.card {
+  cursor: pointer;
+  height: 300px;
+  perspective: 1000px;
+  background: rgb(23,23,71);
+background: -moz-linear-gradient(45deg, rgba(23, 23, 71, 0.645) 0%, rgb(37,37,107) 50%, rgb(23,23,71, 0.645) 100%);
+background: -webkit-linear-gradient(45deg, rgb(23,23,71, 0.645) 0%, rgb(37,37,107) 50%, rgb(23,23,71, 0.645) 100%);
+background: linear-gradient(45deg, rgb(23,23,71, 0.645) 0%, rgb(37,37,107) 50%, rgb(23,23,71, 0.645) 100%);
+}
+
+.card img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+.card h1 {
+  font-size: 25px;
+  font-family: titles;
+  border-bottom: 1px #fff solid;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  color: yellow;
+}
+
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+
+}
+
+.card:hover .card-inner {
+  transform: rotateY(180deg);
+  
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+.card-back {
+  transform: rotateY(180deg); 
+  padding: 20px;
+}
+
+.stat{
+  color: white;
+  font-family: 'Exo', sans-serif;
+}
+.add-btn{
+  z-index: 100;
+  width: 30px;
+  height: 30px;
+  color: white;
+  font-size: large;
+  font-weight: bold;
+  position: absolute;
+  border-radius: 25%;
+  background-color: rgba(177, 16, 16, 0.973);
+  margin: 5px;
+  right: 0;
+  font-family: 'Exo', sans-serif;
+}
+.add-btn:hover{
+  width: 35px;
+  margin: 7px;
+  height: 35px;
+  transition: ease-in-out;
+  font-weight: bold;
+  color: rgba(177, 16, 16, 0.973);
+  background-color: rgb(224, 202, 0);
+}
+
+/* ---------------------------------- */
+/*          Product Detail            */
+/* ---------------------------------- */
+
+.dt-container{
+  width: 60%;
+  height: 40%;
+  padding: 0;
+  margin: 30px;
+  margin-top:-30px;
+}
+.dt-name{
+  font-family: titles;
+}
+.bad{
+  background-color: rgba(169, 19, 19, 0.575);
+  padding: 20px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  border-radius: 3%;
+  color: rgb(0, 0, 0);
+  -webkit-box-shadow: 5px 5px 20px -3px rgba(0,0,0,0.78); 
+  box-shadow: 5px 5px 20px -3px rgba(0,0,0,0.78);
+  background: #CE5937;
+background: -moz-linear-gradient(left, #CE5937 0%, #EB853F 50%, #CE5937 100%);
+background: -webkit-linear-gradient(left, #CE5937 0%, #EB853F 50%, #CE5937 100%);
+background: linear-gradient(to right, #CE5937 0%, #EB853F 50%, #CE5937 100%);
+
+}
+.good{
+  background-color: rgba(19, 169, 31, 0.575);
+  padding: 20px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  border-radius: 3%;
+  color:rgb(1, 51, 1);
+  background: #13A91F;
+background: -moz-linear-gradient(left, #13A91F 0%, #63B872 50%, #13A91F 100%);
+background: -webkit-linear-gradient(left, #13A91F 0%, #63B872 50%, #13A91F 100%);
+background: linear-gradient(to right, #13A91F 0%, #63B872 50%, #13A91F 100%);
+-webkit-box-shadow: 5px 5px 20px -3px rgba(0,0,0,0.78); 
+box-shadow: 5px 5px 20px -3px rgba(0,0,0,0.78);
+}
+
+
+.dt-img{
+  grid-column: 1/2;
+  width:80%;
+  opacity: 95%;
+  border-radius: 3%;
+
+}
+.dt-content{
+  grid-column: 2/3;
+
+}
+.dt-ul{
+  list-style: none;
+  text-decoration: none;
+}
+.dt-stat{
+  font-family: 'Exo', sans-serif;
+}
+.dt-btn{
+  width: fit-content;
+  padding: 5px;
+  float: left;
+  border-radius: 4%;
+  border: none;
+  grid-column: 2/3; 
+  background-color: rgba(177, 16, 16, 0.973);
+  color: white;
+  margin: 10px;
+}
+
+/* ---------------------------------- */
+/*             TEAM                   */
+/* ---------------------------------- */
+.team-container{
+  background-color: rgba(255, 255, 255, 0.631);
+  border-radius: 2%;
+  width: 80vw;
+  height: fit-content;
+  display: grid;
+  grid-template-columns: 70% 30%;
+  padding: 10px;
+  box-sizing: border-box;
+  margin-bottom: 5vh;
+}
+.team-inner{
+  width: inherit;
+  height: inherit;
+}
+.team-header{
+  display: flex;
+  flex-direction:row;
+  justify-content: space-between;
+  align-content: flex-start;
+  position: relative;
+  padding: 0;
+}
+.team-card{
+  object-fit: contain;
+  width: 15vw;
+  height: 50vh;
+}
+.team-img{
+  object-fit: contain;
+  overflow: hidden;
+  width: 100px;
+  height: 80vh;
+}
+.team-btn{
+  width: 4vw;
+  font-size: small;
+  text-align: center;
+}
+.team-left{
+  grid-column: 1/2;
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+  grid-template-rows: 50% 50%;
+}
+.team-rigth{
+  grid-column: 2/3;
+}
+.team-stat{
+  font-size: small;
+}
+
+
+/* ---------------------------------- */
+/*             Responsive             */
+/* ---------------------------------- */
+
+
+@media (max-width: 800px) {
+  .card-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  header img{
+    width: 50%;
+  }
+  .team-container{
+  width: 95vw;
+  height: fit-content;
+  display: grid;
+  grid-template-rows: 70% 30%;
+  grid-template-columns: 33% 33% 33%;
+}
+.team-left{
+  grid-row: 1/2;
+  grid-column: 1/4;
+}
+.team-card{
+  object-fit: contain;
+  width: 30vw;
+  height: 50vh;
+}
+.team-rigth{
+  grid-row: 2/3;
+  grid-column: 1/4;
+  display: flex;
+  flex-direction: row;
+}
+}
+
+@media (max-width: 500px) {
+  .card-container {
+    grid-template-columns: 1fr;
+  }
+  .card img {
+    width: 100%;
+    height: 300px;
+    object-fit: contain;
+  }
+}
+
