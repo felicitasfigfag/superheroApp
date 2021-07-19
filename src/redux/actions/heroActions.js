@@ -22,17 +22,41 @@ export const removeSelectedHero = (hero) => {
         
     };
 };
-//team heroes
-export const addTeamHero = (hero) => {
+//----------------------------
+//            TEAM
+//----------------------------
+
+
+export const addTeamHero = (heroID) => {
     return{
         type: ActionTypes.ADD_TEAM_HERO,
-        payload: hero,
-    };
-};
-export const removeTeamHero = (hero) => {
-    return{
-        type: ActionTypes.REMOVE_TEAM_HERO,
-        payload: hero,
+        payload: heroID,
+        alig: heroID.biography.alignment
     };
 };
 
+export const removeTeamHero = (hero) => {
+    return {
+        type: ActionTypes.REMOVE_TEAM_HERO,
+        id: hero.id,
+        alignment: hero.biography.alignment
+    };
+};
+
+export const adjustQty = (itemID, value) => {
+    return {
+        type: ActionTypes.ADJUST_TEAM_QTY,
+        payload: {
+            id: itemID,
+            qty: value
+        }
+    }
+}
+export const loadCurrentHero = (hero) => {
+    return {
+        type: ActionTypes.LOAD_CURRENT_HERO,
+        payload: {
+            payload: hero
+        }
+    }
+}
