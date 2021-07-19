@@ -6,8 +6,8 @@ import { heroReducer, selectedHeroReducer, teamHeroReducer} from './heroReducer'
 //constant of all the reducers. Combined reducers
 const reducers = combineReducers ({
     allHeros: heroReducer,
-    hero: selectedHeroReducer,
-    teamHero: teamHeroReducer,
+    selectedHero: selectedHeroReducer,
+    team: teamHeroReducer,
 });
 
 export default reducers;
@@ -15,3 +15,6 @@ export default reducers;
 // de aca borre la importacion de productReducer y tmb en reducers
 //  allProducts: productReducer,
 // productReducer (import)
+
+// hero: selectedHeroReducer,
+//     team: teamHeroReducer,
