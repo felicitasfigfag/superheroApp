@@ -1,10 +1,17 @@
 import { ActionTypes } from "../constants/action-types";
+
+
 const initialState = {
   hero: [],
+  team: [],
+  teamCount: { 
+    good : 0,
+    bad: 0
+  },
 };
-const teamState = {
-  teamHero: [],
-}
+
+
+//setheros
 export const heroReducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case ActionTypes.SET_HEROS:
@@ -14,7 +21,7 @@ export const heroReducer = (state = initialState, { type, payload }) => {
   }
 };
 
-
+//selected hero
 export const selectedHeroReducer = (state = {}, { type, payload }) => {
   switch (type) {
     case ActionTypes.SELECTED_HERO:
@@ -26,28 +33,22 @@ export const selectedHeroReducer = (state = {}, { type, payload }) => {
   }
 };
 
-export const teamHeroReducer = (state = [], { type, payload }) => {
-  switch (type) {
+//.payload = heroe // team = team state // teamCount = contador // alig = good/bad
+//este recibe en action el heroe (payload) y el aligmnent (alig)
+
+//add team hero
+export const teamHeroReducer = (state = initialState.team, action) => { 
+
+  switch (action.type) {
     case ActionTypes.ADD_TEAM_HERO:
-            return [...state, payload];
-    // case ActionTypes.REMOVE_TEAM_HERO:
-    //   return {...state.pop(payload)};
+      return [...state ,action.payload];
+      
+
+    case ActionTypes.REMOVE_TEAM_HERO:
+      state = state.filter((item) => item.id !== action.id);
+      return state;
+
     default:
       return state;
   }
-};
-
-//falta hacer el remove del array de team.
-
-//viendo si ya esta en el team
-// const fx = (() =>{
-//   for(let i = 0; i > state.length; i++) {
-//     if(state[i].id !== payload.id){
-//       return [...state, payload]
-//     }
-//     else{
-//       console.log("this one is already on your team")
-//     }
-//   };
-// });
-// fx();
+}
