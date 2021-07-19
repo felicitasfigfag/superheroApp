@@ -11,7 +11,7 @@ const HeroComponent = () => {
         (heros.results != null && heros.results.length > 0)
         ?
         heros.results.map(hero => (
-            <div className="card" key={hero.id}>
+            <div className="card main-card" key={hero.id}>
                 <Link to={`/hero/${hero.id}`}>
                 <div className="card-inner">
                     <div className="card-front">
@@ -31,7 +31,8 @@ const HeroComponent = () => {
             </div>
         ))
         :
-        (<div>Comenza a armar tu equipo buscando superheroes!</div>)
+        (<div className="noHeros">
+            <p> Comenza a armar tu equipo buscando superheroes!</p></div>)
     }
             </>)
 }
